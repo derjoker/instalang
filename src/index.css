@@ -1,0 +1,19 @@
+.highlight {
+  color: rgba(255, 242, 51, 0.298) !important;
+  text-underline-position: under;
+}
+
+.wrong {
+  color: red !important;
+}
+
+.correct {
+  color: green !important;
+}
+
+.cloze {
+  position: absolute;
+  z-index: 9;
+  background: transparent;
+  border: none;
+}
