@@ -6,18 +6,20 @@ document.querySelectorAll(".cloze").forEach(oldCloze => {
 });
 
 document.querySelectorAll("span.highlight").forEach(highlight => {
-  console.log(highlight.offsetWidth);
+  console.log(highlight.getAttribute("data-api-id"));
+  const id = highlight.getAttribute("data-api-id");
   highlight.insertAdjacentHTML(
     "beforebegin",
-    `<input class="cloze" type="text" style="width: ${
+    `<input class="cloze" data-api-id="${id}" type="text" style="width: ${
       highlight.offsetWidth
     }px" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">`
   );
 });
 
-document.querySelectorAll(".cloze").forEach((cloze, index) => {
+document.querySelectorAll(".cloze").forEach(cloze => {
+  const id = cloze.getAttribute("data-api-id");
+  const answer = document.querySelector(`span.highlight[data-api-id="${id}"]`);
   cloze.addEventListener("keypress", event => {
-    const answer = document.querySelectorAll("span.highlight")[index];
     answer.classList.remove("wrong");
     answer.classList.remove("correct");
 
@@ -26,5 +28,17 @@ document.querySelectorAll(".cloze").forEach((cloze, index) => {
       if (cloze.value !== answer.textContent) answer.classList.add("wrong");
       else answer.classList.add("correct");
     }
+  });
+});
+
+document.body.addEventListener("click", event => {
+  if (event.target.nodeName !== "BODY") return;
+
+  // Instapaper: Remove Note
+  if (document.querySelectorAll("div.highlight_popover.reveal").length > 0)
+    return;
+
+  document.querySelectorAll(".cloze").forEach(cloze => {
+    cloze.classList.toggle("cloze-hide");
   });
 });

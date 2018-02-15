@@ -1,6 +1,5 @@
 .highlight {
   color: rgba(255, 242, 51, 0.298) !important;
-  text-underline-position: under;
 }
 
 .wrong {
@@ -16,4 +15,8 @@
   z-index: 9;
   background: transparent;
   border: none;
+}
+
+.cloze-hide {
+  z-index: -9;
 }
