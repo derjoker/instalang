@@ -1,4 +1,4 @@
-.highlight {
+.mask {
   color: rgba(255, 242, 51, 0.298) !important;
 }
 
@@ -15,8 +15,4 @@
   z-index: 9;
   background: transparent;
   border: none;
-}
-
-.cloze-hide {
-  z-index: -9;
 }
