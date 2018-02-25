@@ -16,3 +16,16 @@
   background: transparent;
   border: none;
 }
+
+.answer {
+  color: black !important;
+  background: black !important;
+}
+
+#instalang {
+  position: fixed;
+  bottom: 0px;
+  background: white;
+  width: 100%;
+  text-align: center;
+}
