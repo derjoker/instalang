@@ -55,7 +55,7 @@ function next() {
   const highlight = highlights[pointer];
   highlight.classList.add('answer');
   highlight.scrollIntoView({
-    behavior: 'smooth',
+    // behavior: 'smooth',
     block: 'center',
     inline: 'center',
   });
@@ -77,10 +77,13 @@ document
 
 function check() {
   const input = document.querySelector('#cloze');
-  console.log(input.value);
+  // console.log(input.value);
   const highlight = highlights[pointer];
 
-  if (input.value === highlight.textContent) return true;
+  if (input.value === highlight.textContent) {
+    input.value = '';
+    return true;
+  }
 
   highlight.classList.remove('mask');
   highlight.classList.remove('answer');
@@ -89,21 +92,20 @@ function check() {
     highlight.classList.add('mask');
     highlight.classList.add('answer');
   }, 2000);
+
   return false;
 }
 
 document.querySelector('#cloze').addEventListener('keypress', event => {
   if (event.key === 'Tab') {
     console.log('Tab');
-    if (check()) {
-      event.shiftKey ? prev() : next();
-    }
+    const input = document.querySelector('#cloze');
+    input.value = '';
+    event.shiftKey ? prev() : next();
     event.preventDefault();
   }
   if (event.key === 'Enter') {
     console.log('Enter');
-    if (check()) {
-      event.shiftKey ? prev() : next();
-    }
+    if (check()) next();
   }
 });
