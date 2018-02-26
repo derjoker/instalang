@@ -109,3 +109,10 @@ document.querySelector('#cloze').addEventListener('keypress', event => {
     if (check()) next();
   }
 });
+
+highlights.forEach((highlihgt, index) => {
+  highlihgt.addEventListener('click', event => {
+    pointer = index - 1;
+    next();
+  });
+});
