@@ -96,7 +96,7 @@ function check() {
   return false;
 }
 
-document.querySelector('#cloze').addEventListener('keypress', event => {
+document.querySelector('#cloze').addEventListener('keydown', event => {
   if (event.key === 'Tab') {
     console.log('Tab');
     const input = document.querySelector('#cloze');
