@@ -98,13 +98,14 @@ function check() {
 
 document.querySelector('#cloze').addEventListener('keydown', event => {
   if (event.key === 'Tab') {
+    event.preventDefault();
     console.log('Tab');
     const input = document.querySelector('#cloze');
     input.value = '';
     event.shiftKey ? prev() : next();
-    event.preventDefault();
   }
   if (event.key === 'Enter') {
+    event.preventDefault();
     console.log('Enter');
     if (check()) next();
   }
