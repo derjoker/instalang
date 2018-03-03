@@ -100,6 +100,13 @@ document.querySelector('#cloze').addEventListener('keydown', event => {
   if (event.key === 'Tab') {
     event.preventDefault();
     console.log('Tab');
+    if (!event.shiftKey) {
+      const highlight = highlights[pointer];
+      highlight.classList.add('correct');
+      setTimeout(() => {
+        highlight.classList.remove('correct');
+      }, 3000);
+    }
     const input = document.querySelector('#cloze');
     input.value = '';
     event.shiftKey ? prev() : next();
