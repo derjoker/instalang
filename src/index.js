@@ -124,3 +124,10 @@ highlights.forEach((highlihgt, index) => {
     next();
   });
 });
+
+document.addEventListener('keydown', event => {
+  if (event.key === 'Tab') {
+    event.preventDefault();
+    document.querySelector('#cloze').focus();
+  }
+});
