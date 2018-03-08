@@ -128,7 +128,7 @@ highlights.forEach((highlihgt, index) => {
 document.addEventListener('keydown', event => {
   if (event.key === 'Tab') {
     event.preventDefault();
-    document.body.click();
+    document.querySelector('#instalang').click();
     document.querySelector('#cloze').focus();
   }
 });
