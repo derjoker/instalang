@@ -75,12 +75,12 @@ document
     '<div id="instalang"><input id="cloze" type="text" autofocus autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" /></div>'
   );
 
-function check() {
+function checkX() {
   const input = document.querySelector('#cloze');
   // console.log(input.value);
   const highlight = highlights[pointer];
 
-  if (input.value === highlight.textContent) {
+  if (check(input.value, highlight.textContent)) {
     input.value = '';
     return true;
   }
@@ -114,7 +114,7 @@ document.querySelector('#cloze').addEventListener('keydown', event => {
   if (event.key === 'Enter') {
     event.preventDefault();
     console.log('Enter');
-    if (check()) next();
+    if (checkX()) next();
   }
 });
 
